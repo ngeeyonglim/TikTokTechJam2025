@@ -1,4 +1,4 @@
-# PhotoCensor: Privacy-Preserving Photo Gallery  
+# Hide&Seek: Privacy-Preserving Photo Gallery  
 
 A photo gallery web application that empowers users to **censor sensitive content** in their images while contributing to **privacy-preserving AI training**.  
 
