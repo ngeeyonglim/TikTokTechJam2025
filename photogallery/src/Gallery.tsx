@@ -8,7 +8,6 @@ import { calculateEstimatedSize } from "./utils.tsx";
 
 const SERVER_URL = "http://192.168.0.245:5000";
 const POST_CENSORED_IMAGE_ENDPOINT = "/detect";
-const POST_BOUNDING_BOXES_ENDPOINT = "/update_data";
 const LABEL_TO_CENSOR = 59 // 80 is for "person" in Yolov8 dataset
 
 interface Detection {
@@ -34,29 +33,10 @@ async function callLocalModelForCensor(label: number, image_path: string): Promi
   }
 }
 
-async function postBoundingBoxes(bounding_boxes: number[][], image_path: string): Promise<void> {
-  const URI = SERVER_URL + POST_BOUNDING_BOXES_ENDPOINT;
-  try {
-    const res = await fetch(URI, {
-      method: "POST",
-      headers: { "Content-Type": "application/json"},
-      body: JSON.stringify({
-        bounding_boxes: bounding_boxes,
-        image: image_path
-      })
-    });
-    await res.json();
-    console.log("Successfully posted bounding boxes:", bounding_boxes);
-  } catch (err) {
-    console.error("Error posting bounding boxes to Python server:", err);
-  }
-}
-
 export const Gallery = (props: { pictureData: Picture[] }) => {
   const { pictureData } = props;
   const [expanded, setExpanded] = useState<number | null>(null);
   const [isModalOpen, setModalOpen] = useState(false);
-  const [bb_data, setBBData] = useState<string | null>(null);
   if (isModalOpen) {
     const picture=pictureData[expanded??0];
     
@@ -66,21 +46,15 @@ export const Gallery = (props: { pictureData: Picture[] }) => {
       picture.detected_bounding_boxes = [];
       dets?.forEach((det) => {
         picture.detected_bounding_boxes?.push(det.bbox);
-        setBBData(det.bbox[0].toFixed(2) + ", " + det.bbox[1].toFixed(2) + ", " + det.bbox[2].toFixed(2) + ", " + det.bbox[3].toFixed(2));
       });
-    const b = picture.detected_bounding_boxes;
   });
-  let vp = 
-    <view>
-        <ModalProps picture={picture} onClose={() => setModalOpen(false)}>
-        </ModalProps>
-        {/* <text style="color: blue; text-align: center; margin-top: 100px;">
-            {bb_data}
-          </text> */}
-    </view>
 
     return(
-    vp);
+      <view>
+          <ModalProps picture={picture} onClose={() => setModalOpen(false)}>
+          </ModalProps>
+      </view>
+    );
   } else {
 
   return (

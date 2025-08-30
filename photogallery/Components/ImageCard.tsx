@@ -1,19 +1,22 @@
 import "../index.css";
+import { useState } from "@lynx-js/react";
 import type { Picture } from "../Pictures/furnitures/furnituresPictures.tsx";
-import LikeIcon from "./LikeIcon.tsx";
 
 type ImageCardProps = {
   picture: Picture;
 };
 
 export default function ImageCard({picture}: ImageCardProps) {
+  const reRender = useState(false)[1]; // We don't use the state variable, just the reRender function
   return (
     <view className="picture-wrapper"
+    bindtap={() => {
+      reRender((prev) => !prev); // Trigger a re-render to show/hide the bounding boxes
+    }}
     >
-      
       <image
         className="image"
-        style={{ width: "100%", aspectRatio: picture.width / picture.height }}
+        style={{ borderRadius: "20px", width: "100%", aspectRatio: picture.width / picture.height, padding: "10px" }}
         src={picture.src}
       />
 
@@ -35,8 +38,6 @@ export default function ImageCard({picture}: ImageCardProps) {
             src={picture.src} // TODO: replace with black image
           />
         )) }
-
-      <LikeIcon picture={picture}/>
     </view>
   );
 }
