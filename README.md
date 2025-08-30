@@ -1,8 +1,8 @@
-# Hide&Seek: Privacy-Preserving Photo Gallery  
+# hide & seek: A Privacy-first Photo Gallery
 
-A photo gallery web application that empowers users to **censor sensitive content** in their images while contributing to **privacy-preserving AI training**.  
+A photo gallery application that empowers users to **censor sensitive content** in their images while contributing to **privacy-preserving AI training**.  
 
-Users can blur faces or other regions, manually draw bounding boxes around uncensored features, and automatically generate new training samples. These edits improve a local model (PyTorch + YOLO), which is then aggregated using **Federated Learning (FL)** and **Differential Privacy (DP)**.
+Users can blur faces or other regions, manually draw bounding boxes around features, which automatically generate new training data. These edits improve a local model (PyTorch + YOLO), which is then aggregated using **Federated Learning (FL)** and **Differential Privacy (DP)** to train a global model.
 
 ---
 
@@ -58,20 +58,20 @@ python3 -m venv .venv
 source .venv/bin/activate
 
 # install Python dependencies
-pip install -r requirements.txt
+pip install -r ml_code/requirements.txt
 ```
 
 ### Frontend (Lynx.js)
 ```bash
 cd frontend
-npm install
+npm install 
 npm run build
 ```
 
 ---
 
 ## 🎥 Demo  
-👉 [YouTube link placeholder – coming soon]  
+👉 (https://youtu.be/3w1zr4m3QPs)
 
 ---
 
@@ -100,11 +100,11 @@ This project is licensed under the **MIT License** — free to use, modify, and 
 ---
 
 ## 🙏 Acknowledgments  
-- [Flask](https://flask.palletsprojects.com/) – backend framework  
+- [Flask](https://flask.palletsprojects.com/) – Backend framework  
 - [Lynx.js](https://lynx.tiktokglobal.lan/) – TikTok frontend framework  
 - [PyTorch](https://pytorch.org/) – ML training  
-- [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics) – object detection  
-- [Opacus](https://opacus.ai/) – differential privacy in PyTorch  
-- [Flower](https://flower.dev/) – federated learning framework  
+- [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics) – Object detection  
+- [Opacus](https://opacus.ai/) – Differential privacy in PyTorch  
+- [Flower](https://flower.dev/) – Federated learning framework  
 
 ---
