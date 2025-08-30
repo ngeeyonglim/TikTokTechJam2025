@@ -11,6 +11,11 @@ Users can blur faces or other regions, manually draw bounding boxes around uncen
 - [Features](#features)  
 - [Installation](#installation)  
 - [Usage](#usage)  
+- [Contributing](#contributing)  
+- [Roadmap](#roadmap)  
+- [License](#license)  
+- [Acknowledgments](#acknowledgments)  
+
 ---
 
 ## 🔍 Overview  
@@ -26,7 +31,7 @@ Most photo apps don’t guarantee privacy. **PhotoCensor** puts users in control
 
 ## ✨ Features  
 - **📸 Photo Gallery UI**: Browse and select images in a familiar interface.  
-- **🤖 Automated Censoring**: Detects and blurs sensitive regions.  
+- **🤖 Censoring**: Detects and blurs sensitive regions.  
 - **✏️ Manual Editing**: Draw bounding boxes for uncensored features.  
 - **🧠 On-device Learning**: Add training samples seamlessly through your edits.  
 - **🌍 Federated Learning**: Contribute to a global model without exposing private data.  
@@ -56,6 +61,57 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### Usage
-<Youtube Link>
+### Frontend (Lynx.js)
+```bash
+cd frontend
+npm install
+npm run build
+```
 
+---
+
+## 🎥 Demo  
+👉 [YouTube link placeholder – coming soon]  
+
+---
+
+## 🤝 Contributing  
+Contributions are welcome!  
+1. Fork the repo  
+2. Create a branch (`git checkout -b feature/xyz`)  
+3. Commit your changes (`git commit -m "Add feature xyz"`)  
+4. Push the branch (`git push origin feature/xyz`)  
+5. Open a Pull Request  
+
+---
+
+## 🧪 Testing  
+```bash
+pytest tests/
+```
+
+---
+
+## 🛣️ Roadmap  
+- [ ] Add mobile app version (React Native or Lynx mobile)  
+- [ ] Improve YOLO detection accuracy  
+- [ ] Add support for video censoring  
+- [ ] UI for federated training progress  
+- [ ] Deployment on cloud FL coordinator  
+
+---
+
+## 📜 License  
+This project is licensed under the **MIT License** — free to use, modify, and distribute.  
+
+---
+
+## 🙏 Acknowledgments  
+- [Flask](https://flask.palletsprojects.com/) – backend framework  
+- [Lynx.js](https://lynx.tiktokglobal.lan/) – TikTok frontend framework  
+- [PyTorch](https://pytorch.org/) – ML training  
+- [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics) – object detection  
+- [Opacus](https://opacus.ai/) – differential privacy in PyTorch  
+- [Flower](https://flower.dev/) – federated learning framework  
+
+---
