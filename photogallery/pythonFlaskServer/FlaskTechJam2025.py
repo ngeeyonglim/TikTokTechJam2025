@@ -34,15 +34,14 @@ def detect():
         print("class: ", class_id)
         print("Hey returning!")
         x1, y1, x2, y2 = map(float, box)
-        detections.append({
-            "class_id": int(class_id),
-            "bbox": [x1 / w,
-                 y1 / h,
-                 x2 / w,
-                 y2 / h]
-        })
+        # detections.append({
+        #     "class_id": int(class_id),
+        #     "bbox": [x1 / w,
+        #          y1 / h,
+        #          x2 / w,
+        #          y2 / h]
+        # })
             
-        """
         if label == int(class_id):
             print("Hey returning!")
             x1, y1, x2, y2 = map(float, box)
@@ -53,7 +52,6 @@ def detect():
                          x2 / w,
                          y2 / h]
             })
-            """
 
     json_output = json.dumps(detections, indent=2)
     print(f"im returning ${json_output}")

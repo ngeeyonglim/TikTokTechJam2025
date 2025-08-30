@@ -60,7 +60,7 @@ for idx, i in enumerate(arr):
     print(f"""
 {{
     src: pic{i},
-    localSrc: BASE_PATH + "{i}.jpg",
+    localSrc: BASE_PATH + "wider_{i}.jpg",
     width: {image_widths[i]},
     height: {image_heights[i]},
 }},""")

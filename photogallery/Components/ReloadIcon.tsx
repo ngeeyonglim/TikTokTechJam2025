@@ -1,6 +1,6 @@
 import "../index.css";
 import reloadIcon from "../Pictures/reload_icon.png";
-import type { Picture } from "../Pictures/furnitures/furnituresPictures.tsx";
+import type { Picture } from "../Pictures/faces/facesPictures.tsx";
 
 type ReloadIconProps = {
   picture: Picture; // Add the Picture type as a prop

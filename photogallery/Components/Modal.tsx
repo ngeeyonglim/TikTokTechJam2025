@@ -1,7 +1,8 @@
 import "../index.css";
 import { useRef, useState } from "@lynx-js/react";
 import ImageCard from "./ImageCard.tsx";
-import type { Picture } from "../Pictures/furnitures/furnituresPictures.tsx";
+import type { Picture } from "../Pictures/faces/facesPictures.tsx";
+
 
 import UploadIcon from "./UploadIcon.tsx";
 import ReloadIcon from "./ReloadIcon.tsx";
@@ -34,7 +35,7 @@ export default function Modal({ onClose, picture }: ModalProps) {
             const x = e.touches[0]?.pageX || 0;
             const y = e.touches[0]?.pageY || 0;
             const numTouches = e.touches.length;
-            setXY(`Num touch: ${numTouches}, Coordinates:  ${x.toFixed(1)}, ${y.toFixed(1)}`);
+            // setXY(`Num touch: ${numTouches}, Coordinates:  ${x.toFixed(1)}, ${y.toFixed(1)}`);
             firstXY.current = [x, y];
   }
    

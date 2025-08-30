@@ -1,6 +1,7 @@
 import "../index.css";
 import uploadIcon from "../Pictures/upload_icon.png";
-import type { Picture } from "../Pictures/furnitures/furnituresPictures.tsx";
+import type { Picture } from "../Pictures/faces/facesPictures.tsx";
+
 
 const SERVER_URL = "http://192.168.0.245:5000";
 const POST_BOUNDING_BOXES_ENDPOINT = "/update_data";

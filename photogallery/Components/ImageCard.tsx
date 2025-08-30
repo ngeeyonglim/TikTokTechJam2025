@@ -1,6 +1,7 @@
 import "../index.css";
 import { useState } from "@lynx-js/react";
-import type { Picture } from "../Pictures/furnitures/furnituresPictures.tsx";
+import type { Picture } from "../Pictures/faces/facesPictures.tsx";
+
 
 type ImageCardProps = {
   picture: Picture;
