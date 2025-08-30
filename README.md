@@ -1,4 +1,4 @@
-# Hide&Seek: A Privacy-first Photo Gallery
+# hide & seek: A Privacy-first Photo Gallery
 
 A photo gallery application that empowers users to **censor sensitive content** in their images while contributing to **privacy-preserving AI training**.  
 
@@ -58,13 +58,13 @@ python3 -m venv .venv
 source .venv/bin/activate
 
 # install Python dependencies
-pip install -r requirements.txt
+pip install -r ml_code/requirements.txt
 ```
 
 ### Frontend (Lynx.js)
 ```bash
 cd frontend
-npm install
+npm install 
 npm run build
 ```
 

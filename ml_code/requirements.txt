@@ -1,0 +1,4 @@
+opacus==1.5.4
+PyYAML==6.0.2
+torch==2.8.0
+ultralytics==8.3.189
