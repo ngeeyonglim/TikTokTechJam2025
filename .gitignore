@@ -1,0 +1,23 @@
+
+# Local
+.DS_Store
+*.local
+*.log*
+
+# Dist
+photogallery/node_modules
+photogallery/dist/
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# Python models
+photogallery/pythonFlaskServer/*.pt
+photogallery/pythonFlaskServernew_training_data.txt
+
+data/
+initial_sandbox/mnist_test.csv
+initial_sandbox/mnist_train.csv
+initial_sandbox/mnist_train_small.csv
