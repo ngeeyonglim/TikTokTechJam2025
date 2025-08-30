@@ -1,7 +1,7 @@
 import "../index.css";
 import type { Picture } from "../Pictures/faces/facesPictures.tsx";
 import { useState } from "@lynx-js/react";
-import  ModalProps  from "../Components/Modal.tsx";
+import ModalProps from "../Components/Modal.tsx";
 
 import ImageCard from "../Components/ImageCard.tsx";
 import { calculateEstimatedSize } from "./utils.tsx";
@@ -20,7 +20,7 @@ async function callLocalModelForCensor(label: number, image_path: string): Promi
   try {
     const res = await fetch(URI, {
       method: "POST",
-      headers: { "Content-Type": "application/json"},
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         label: label,
         image: image_path
@@ -38,8 +38,8 @@ export const Gallery = (props: { pictureData: Picture[] }) => {
   const [expanded, setExpanded] = useState<number | null>(null);
   const [isModalOpen, setModalOpen] = useState(false);
   if (isModalOpen) {
-    const picture=pictureData[expanded??0];
-    
+    const picture = pictureData[expanded ?? 0];
+
     // Usage
     const detections = callLocalModelForCensor(LABEL_TO_CENSOR, picture.localSrc);
     detections.then((dets) => {
@@ -47,39 +47,39 @@ export const Gallery = (props: { pictureData: Picture[] }) => {
       dets?.forEach((det) => {
         picture.detected_bounding_boxes?.push(det.bbox);
       });
-  });
+    });
 
-    return(
+    return (
       <view>
-          <ModalProps picture={picture} onClose={() => setModalOpen(false)}>
-          </ModalProps>
+        <ModalProps picture={picture} onClose={() => setModalOpen(false)}>
+        </ModalProps>
       </view>
     );
   } else {
 
-  return (
-    <view className="gallery-wrapper">
-      <list
-        className="list"
-        list-type="waterfall"
-        column-count={2}
-        scroll-orientation="vertical"
-        custom-list-name="list-container"
-      >
-        { pictureData.map((picture: Picture, index: number) => (
-          <list-item
-            estimated-main-axis-size-px={calculateEstimatedSize(picture.width, picture.height)}
-            item-key={"" + index}
-            key={"" + index}
-            bindtap={() => {setExpanded(index); setModalOpen(true);}}
-          >
-            <ImageCard picture={picture} />
-          </list-item>
-        )) }
-      </list>
-      
-    </view>
-  );
+    return (
+      <view className="gallery-wrapper">
+        <list
+          className="list"
+          list-type="waterfall"
+          column-count={2}
+          scroll-orientation="vertical"
+          custom-list-name="list-container"
+        >
+          {pictureData.map((picture: Picture, index: number) => (
+            <list-item
+              estimated-main-axis-size-px={calculateEstimatedSize(picture.width, picture.height)}
+              item-key={"" + index}
+              key={"" + index}
+              bindtap={() => { setExpanded(index); setModalOpen(true); }}
+            >
+              <ImageCard picture={picture} />
+            </list-item>
+          ))}
+        </list>
+
+      </view>
+    );
   }
 };
 

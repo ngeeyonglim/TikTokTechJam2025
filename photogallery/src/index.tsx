@@ -5,7 +5,7 @@ import Gallery from "./Gallery.tsx";
 
 function PictureList() {
   return <view className="gallery-wrapper multi-card">
-  <Gallery pictureData={facesPictures} />;
+    <Gallery pictureData={facesPictures} />;
 
   </view>
 }

@@ -1,4 +1,5 @@
 import "../index.css";
+import { useState } from "@lynx-js/react";
 import uploadIcon from "../Pictures/upload_icon.png";
 import type { Picture } from "../Pictures/faces/facesPictures.tsx";
 
@@ -15,7 +16,7 @@ async function postBoundingBoxes(labels: number[], new_bbs: number[][], image: s
   try {
     const res = await fetch(URI, {
       method: "POST",
-      headers: { "Content-Type": "application/json"},
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         labels: labels,
         new_bbs: new_bbs,
@@ -27,14 +28,18 @@ async function postBoundingBoxes(labels: number[], new_bbs: number[][], image: s
   }
 }
 // Use this to upload added bounding boxes to local AI model
-export default function UploadIcon({picture}: UploadIconProps) {
+export default function UploadIcon({ picture }: UploadIconProps) {
+  const [isTapped, setIsTapped] = useState(false);
   const onTap = () => {
     if (picture.added_bounding_boxes && picture.added_labels) {
       postBoundingBoxes(picture.added_labels, picture.added_bounding_boxes, picture.localSrc);
     }
+    setIsTapped(false);
+    setTimeout(() => setIsTapped(true), 0); // Wait till next tick to reset isTapped, to trigger re-render
   };
   return (
     <view className="upload-icon" bindtap={onTap}>
+      {isTapped && <view className="circle" />}
       <image src={uploadIcon} className="icon" />
     </view>
   );
