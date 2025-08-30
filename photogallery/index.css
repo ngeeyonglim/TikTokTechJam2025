@@ -3,9 +3,10 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  background-color:rgb(191, 90, 90);
 }
 .modal-content {
-  background-color: rgb(106, 115, 40); /* Background for the modal content */
+  background-color: rgb(25, 27, 53); /* Background for the modal content */
   border-radius: 8px; /* Optional: Rounded corners */
   padding: 20px;
   box-shadow: 0px 4px 6px rgba(41, 175, 102, 0.1); /* Optional: Add a shadow */
@@ -67,8 +68,6 @@
   padding-left: 20px;
   padding-right: 20px;
   height: calc(100% - 48px);
-  /* // list-main-axis-gap: 10px;
-  // list-cross-axis-gap: 10px; */
 }
 
 .picture-wrapper {
@@ -77,18 +76,29 @@
   width: 100%;
 }
 
-.like-icon {
+.upload-icon {
   position: absolute;
   display: grid;
   justify-items: center;
   align-items: center;
-  top: 0px;
-  right: 0px;
+  top: 30px;
+  right: 30px;
   width: 48px;
   height: 48px;
 }
 
-.heart-love {
+.reload-icon {
+  position: absolute;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  top: 68px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+}
+
+.icon {
   width: 16px;
   height: 16px;
 }

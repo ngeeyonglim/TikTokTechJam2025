@@ -7,18 +7,16 @@ This is a ReactLynx project bootstrapped with `create-rspeedy`.
 First, install the dependencies:
 
 ```bash
-pnpm install
+npm install
 ```
 
 Then, run the development server:
 
 ```bash
-pnpm run dev
+npm run dev
 ```
 
 Scan the QRCode in the terminal with your LynxExplorer App to see the result.
-
-You can start editing the page by modifying `src/App.tsx`. The page auto-updates as you edit the file.
 
 ## Backend server
 
@@ -30,3 +28,9 @@ To run this server,
 cd pythonFlaskServer
 python3 FlaskTechJam2025.py
 ```
+
+### Setting up the Flask IP address
+
+It is very important to set the IP address to the one of your flask server.
+
+This must be done for the SERVER_URL variable in `Gallery.tsx` and `UploadIcon.tsx`
