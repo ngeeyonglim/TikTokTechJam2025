@@ -4,9 +4,7 @@ import cv2
 import json
 
 app = Flask(__name__)
-model = YOLO("yolov8n.pt")
-
-to_blur = ["person", "face"]
+model = YOLO("./global.pt")
 
 
 @app.route('/')

@@ -14,7 +14,6 @@ photogallery/dist/
 .idea
 
 # Python models
-photogallery/pythonFlaskServer/*.pt
 photogallery/pythonFlaskServernew_training_data.txt
 
 data/
