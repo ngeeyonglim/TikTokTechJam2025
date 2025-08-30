@@ -71,7 +71,7 @@ npm run build
 ---
 
 ## 🎥 Demo  
-👉 [YouTube link placeholder – coming soon]  
+👉 (https://youtu.be/3w1zr4m3QPs)
 
 ---
 
