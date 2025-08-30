@@ -4,6 +4,10 @@ This is a ReactLynx project bootstrapped with `create-rspeedy`.
 
 ## Getting Started
 
+Ensure that you have the Lynx Explorer downloaded on your device. If you do not have the Lynx Explorer downloaded, you can refer to this guide to download it, [Lynx Explorer](https://lynxjs.org/guide/start/quick-start.html).
+
+Once Lynx Explorer is installed on your device, proceed with the following instructions in your terminal.
+
 First, install the dependencies:
 
 ```bash
@@ -16,7 +20,7 @@ Then, run the development server:
 npm run dev
 ```
 
-Scan the QRCode in the terminal with your LynxExplorer App to see the result.
+Scan the QRCode in the terminal with your Lynx Explorer App to see the result.
 
 ## Backend server
 
