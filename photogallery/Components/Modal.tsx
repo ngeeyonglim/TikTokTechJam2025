@@ -13,6 +13,12 @@ type ModalProps = {
   picture: Picture;
 }
 
+// Store the final rendered dimension of the expanded image
+let renderedTop: number;
+let renderedBottom: number;
+let renderedLeft: number;
+let renderedRight: number;
+
 function isBoxBigEnough(firstXY: number[], secondXY: number[]) {
   const deltaX = Math.abs(firstXY[0] - secondXY[0]);
   const deltaY = Math.abs(firstXY[1] - secondXY[1]);
@@ -26,13 +32,20 @@ export default function Modal({ onClose, picture }: ModalProps) {
   const reRender = useState(false)[1]; // We don't use the state variable, just the reRender function
   let firstXY = useRef<[number, number]>([0, 0]);
   let secondXY = useRef<[number, number]>([0, 0]);
+
   return (
     <view
       className="modal"
       bindtap={onClose} // click backdrop closes modal
-      style="top: 0px; left: 0px; width: 400px; aspectRatio: picture.width / picture.height; background-color:rgb(213, 128, 18);"
+      style="top: 0px; left: 0px; width: 100%; aspectRatio: picture.width / picture.height; background-color:rgb(213, 128, 18);"
     >
       <view className="modal-content"
+        bindlayoutchange={(e) => {
+          renderedTop = e.detail.top;
+          renderedBottom = e.detail.bottom;
+          renderedLeft = e.detail.left;
+          renderedRight = e.detail.right;
+        }}
         catchtouchstart={(e) => {
           const x = e.touches[0]?.pageX || 0;
           const y = e.touches[0]?.pageY || 0;
@@ -45,21 +58,22 @@ export default function Modal({ onClose, picture }: ModalProps) {
           const y = e.touches[0]?.pageY || 0;
           secondXY.current = [x, y];
           reRender((prev) => !prev)
+
           if (isBoxBigEnough(firstXY.current, secondXY.current)) {
             if (!picture.added_bounding_boxes || !picture.added_labels) {
               picture.added_bounding_boxes = [];
               picture.added_labels = [];
             }
-            const normalX1 = (firstXY.current[0] - 20) / 360; // 400 width, 20 padding
-            const normalY1 = (firstXY.current[1] - 20) / (360 / picture.width * picture.height); // height based on aspect ratio
-            const normalX2 = (secondXY.current[0] - 20) / 360;
-            const normalY2 = (secondXY.current[1] - 20) / (360 / picture.width * picture.height);
+            const normalX1 = (firstXY.current[0] - renderedLeft) / renderedRight; // account for 20 padding
+            const normalY1 = (firstXY.current[1] - renderedTop) / renderedBottom;
+            const normalX2 = (secondXY.current[0]) / renderedRight;
+            const normalY2 = (secondXY.current[1]) / renderedBottom;
 
             // We need to ensure x1,y1 is the top left and x2,y2 the bottom right
-            const smallerX1 = Math.min(normalX1, normalX2);
-            const smallerY1 = Math.min(normalY1, normalY2);
-            const largerX2 = Math.max(normalX1, normalX2);
-            const largerY2 = Math.max(normalY1, normalY2);
+            const smallerX1 = Math.max(0, Math.min(normalX1, normalX2));
+            const smallerY1 = Math.max(0, Math.min(normalY1, normalY2));
+            const largerX2 = Math.min(1, Math.max(normalX1, normalX2));
+            const largerY2 = Math.min(1, Math.max(normalY1, normalY2));
 
             picture.added_bounding_boxes.push([smallerX1, smallerY1, largerX2, largerY2]);
             picture.added_labels.push(PLACEHOLDER_LABEL);
