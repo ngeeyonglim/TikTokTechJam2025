@@ -19,7 +19,7 @@ Users can blur faces or other regions, manually draw bounding boxes around uncen
 ---
 
 ## 🔍 Overview  
-Most photo apps don’t guarantee privacy. **PhotoCensor** puts users in control:  
+Most photo apps don’t guarantee privacy. **Hide&Seek** puts users in control:  
 
 - Automatically detect and censor sensitive regions in images.  
 - Manually draw bounding boxes to blur any missed features.  
