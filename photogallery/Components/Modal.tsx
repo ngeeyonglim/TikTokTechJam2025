@@ -21,21 +21,21 @@ function isBoxDrawn(firstXY: number[], secondXY: number[]) {
 }
 
 export default function Modal({ onClose, picture }: ModalProps) {
-  const [xy, setXY] = useState<string | null>("hello!");
+  const [xy, setXY] = useState<string | null>("1) Tap screen once to see detected censored faces!\n2) Touch and drag to draw a new\
+ bounding box to censor.\n3) Tap refresh to remove bounding boxes\n4) Tap outside the image to close.");
   let firstXY = useRef<[number, number]>([0, 0]);
   let secondXY = useRef<[number, number]>([0, 0]);
   return (
     <view
       className="modal"
       bindtap={onClose} // click backdrop closes modal
-      style="top: 0px; left: 0px; width: 400px; aspectRatio: picture.width / picture.height; background-color:rgb(191, 90, 90);"
+      style="top: 0px; left: 0px; width: 400px; aspectRatio: picture.width / picture.height; background-color:rgb(53, 5, 74);"
     >
          <view className="modal-content"
          catchtouchstart={(e) => {
             const x = e.touches[0]?.pageX || 0;
             const y = e.touches[0]?.pageY || 0;
             const numTouches = e.touches.length;
-            // setXY(`Num touch: ${numTouches}, Coordinates:  ${x.toFixed(1)}, ${y.toFixed(1)}`);
             firstXY.current = [x, y];
   }
    
@@ -46,10 +46,7 @@ export default function Modal({ onClose, picture }: ModalProps) {
           const numTouches = e.touches.length;
           secondXY.current = [x, y];
           if (isBoxDrawn(firstXY.current, secondXY.current)){
-            setXY(`
-              ${firstXY.current[0]}, ${firstXY.current[1]}
-              ${secondXY.current[0]}, ${secondXY.current[1]}
-            `)
+            setXY("Bounding box drawn!")
           if (!picture.added_bounding_boxes || !picture.added_labels) {
             picture.added_bounding_boxes = [];
             picture.added_labels = [];
@@ -71,7 +68,7 @@ export default function Modal({ onClose, picture }: ModalProps) {
         }
 
          }
-           catchtap={(e) => null} // Catch tap so modal does not close when bubbling
+           catchtap={(e) => setXY(xy)} // Catch tap so modal does not close when bubbling
            >
           <ImageCard picture={picture} />
           <UploadIcon picture={picture}/>

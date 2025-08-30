@@ -1,14 +1,14 @@
+import "../index.css";
 import type { Picture } from "../Pictures/faces/facesPictures.tsx";
 import { useState } from "@lynx-js/react";
 import  ModalProps  from "../Components/Modal.tsx";
-import "../index.css";
 
 import ImageCard from "../Components/ImageCard.tsx";
 import { calculateEstimatedSize } from "./utils.tsx";
 
 const SERVER_URL = "http://192.168.0.245:5000";
 const POST_CENSORED_IMAGE_ENDPOINT = "/detect";
-const LABEL_TO_CENSOR = 80 // 80 is for "person" in Yolov8 dataset
+const LABEL_TO_CENSOR = 80 // 80 is for "face" in Yolov8 dataset
 
 interface Detection {
   class_id: number;
