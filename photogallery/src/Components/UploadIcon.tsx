@@ -1,7 +1,7 @@
-import "../index.css";
+import "../../index.css";
 import { useState } from "@lynx-js/react";
-import uploadIcon from "../Pictures/upload_icon.png";
-import type { Picture } from "../Pictures/faces/facesPictures.tsx";
+import uploadIcon from "../../Pictures/upload_icon.png";
+import type { Picture } from "../../Pictures/faces/facesPictures.tsx";
 
 
 const SERVER_URL = "http://192.168.0.245:5000";

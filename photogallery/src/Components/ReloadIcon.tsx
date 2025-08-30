@@ -1,7 +1,7 @@
-import "../index.css";
+import "../../index.css";
 import { useState } from "@lynx-js/react";
-import reloadIcon from "../Pictures/reload_icon.png";
-import type { Picture } from "../Pictures/faces/facesPictures.tsx";
+import reloadIcon from "../../Pictures/reload_icon.png";
+import type { Picture } from "../../Pictures/faces/facesPictures.tsx";
 
 type ReloadIconProps = {
   picture: Picture; // Add the Picture type as a prop

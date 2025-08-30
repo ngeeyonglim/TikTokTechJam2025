@@ -1,9 +1,9 @@
 import "../index.css";
 import type { Picture } from "../Pictures/faces/facesPictures.tsx";
 import { useState } from "@lynx-js/react";
-import ModalProps from "../Components/Modal.tsx";
+import ModalProps from "./Components/Modal.tsx";
 
-import ImageCard from "../Components/ImageCard.tsx";
+import ImageCard from "./Components/ImageCard.tsx";
 import { calculateEstimatedSize } from "./utils.tsx";
 
 const SERVER_URL = "http://192.168.0.245:5000";

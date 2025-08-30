@@ -1,7 +1,7 @@
-import "../index.css";
+import "../../index.css";
 import { useRef, useState } from "@lynx-js/react";
 import ImageCard from "./ImageCard.tsx";
-import type { Picture } from "../Pictures/faces/facesPictures.tsx";
+import type { Picture } from "../../Pictures/faces/facesPictures.tsx";
 
 
 import UploadIcon from "./UploadIcon.tsx";

@@ -1,6 +1,6 @@
-import "../index.css";
-import type { Picture } from "../Pictures/faces/facesPictures.tsx";
-import blackImage from "../Pictures/Black_colour.jpg";
+import "../../index.css";
+import type { Picture } from "../../Pictures/faces/facesPictures.tsx";
+import blackImage from "../../Pictures/Black_colour.jpg";
 
 type ImageCardProps = {
   picture: Picture;
