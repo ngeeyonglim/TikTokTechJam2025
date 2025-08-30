@@ -85,13 +85,6 @@ Contributions are welcome!
 
 ---
 
-## 🧪 Testing  
-```bash
-pytest tests/
-```
-
----
-
 ## 🛣️ Roadmap  
 - [ ] Add mobile app version (React Native or Lynx mobile)  
 - [ ] Improve YOLO detection accuracy  
